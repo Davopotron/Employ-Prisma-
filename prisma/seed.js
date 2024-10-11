@@ -1,11 +1,11 @@
 const prisma = require("../prisma");
 const seed = async () => {
   // TODO: 
-  const employee = [];
+  const employees = [];
   for (let i = 0; i < 10; i++) {
-    employee.push({ name: `Employee ${i}`});
+    employees.push({ name: `Employee ${i}`});
   }
-  await prisma.employee.createMany({ data: employee});
+  await prisma.employee.createMany({ data: employees});
 };
 seed()
   .then(async () => await prisma.$disconnect())

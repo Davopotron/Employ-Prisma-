@@ -4,7 +4,11 @@ const PORT = 3000;
 
 app.use(express.json());
 
-app.use("/books", require("./api/employees"));
+app.get("/", (req, res) => {
+    res.send("Hello employees!");
+  });
+
+app.use("/employees", require("./api/employees"));
 
 // Logging middleware
 app.use((req, res, next) => {

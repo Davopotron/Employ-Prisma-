@@ -15,9 +15,15 @@ router.get("/", async (req, res, next) => {
 
 
 router.get("/:id", async (req, res, next) => {
-    const { id } = req.params;
+    let { id } = req.params;
+    
   
     try {
+        if (id === "random") {
+            const employees = await prisma.employee.findMany()
+            const limit = employees.length
+            id = Math.round(Math.random() * limit) 
+        }
       // `id` has to be converted into a number before looking for it!
       const employee = await prisma.employee.findUnique({ where: { id: +id } });
       if (employee) {

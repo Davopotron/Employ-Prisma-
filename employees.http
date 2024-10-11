@@ -22,10 +22,6 @@ POST {{host}}/employees
 Content-Type: application/json
 
 {
-    "employee": "Frank"
-}
-
-{
     "name": "Em Ploy Yee"
 }
 
