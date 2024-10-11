@@ -35,3 +35,9 @@ Content-Type: application/json
 {
     "name": "Wrong employee"
 }
+
+### Delete existing employee
+DELETE {{host}}/employees/
+
+### Delete non-existing employee
+DELETE {{host}}/employee/

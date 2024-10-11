@@ -101,4 +101,25 @@ router.get("/:id", async (req, res, next) => {
     }
   });
 
+  router.delete("/:id", async (req, res, next) => {
+    const { id } = req.params;
+  
+    try {
+      // Check if the book exists
+      const employee = await prisma.employee.findUnique({ where: { id: +id } });
+      if (!employee) {
+        return next({
+          status: 404,
+          message: `Employee with id ${id} does not exist.`,
+        });
+      }
+  
+      // Delete the book
+      await prisma.employee.delete({ where: { id: +id } });
+      res.sendStatus(204);
+    } catch (e) {
+      next(e);
+    }
+  });
+
   
