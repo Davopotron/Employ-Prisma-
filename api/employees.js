@@ -32,13 +32,13 @@ router.get("/:id", async (req, res, next) => {
 
   router.put("/:id", async (req, res, next) => {
     const { id } = req.params;
-    const { title } = req.body;
+    const { name } = req.body;
   
     // Check if title was provided
     if (!name) {
       return next({
         status: 400,
-        message: "A new title must be provided.",
+        message: "A new name must be provided.",
       });
     }
   

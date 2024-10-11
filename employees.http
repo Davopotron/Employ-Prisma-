@@ -1,0 +1,41 @@
+@port=3000
+@host=http://localhost:{{port}}
+
+### GET /
+GET {{host}}
+
+### Get all employees
+GET {{host}}/employees
+
+### Get specific employee
+GET {{host}}/employees/2
+
+### Get nonexistent employee
+GET {{host}}/employees/123
+
+### Get random employee
+GET {{host}}/employees/random
+
+### Add a new employee
+
+POST {{host}}/employees
+Content-Type: application/json
+
+{
+    "employee": "Frank"
+}
+
+{
+    "name": "Em Ploy Yee"
+}
+
+### Get employee with specific ID
+GET {{host}}/employees/8
+
+### Incorrectly add a new employee
+POST {{host}}/employees/
+Content-Type: application/json
+
+{
+    "name": "Wrong employee"
+}
